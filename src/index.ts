@@ -1,11 +1,12 @@
-import * as _ from 'lodash';
+import express from 'express';
+import config from '../config'
+import heatlhRoutes from './routes/health';
 
-  function component() {
-    const element = document.createElement('div');
+const app = express();
 
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+app.use(express.json());
+app.use(heatlhRoutes);
 
-    return element;
-  }
-
-  document.body.appendChild(component());
+app.listen(config.PORT, () => {
+   console.log(`Server listening on port ${config.PORT}`);
+});
