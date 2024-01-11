@@ -7,6 +7,8 @@ const app = express();
 app.use(express.json());
 app.use(heatlhRoutes);
 
-app.listen(config.PORT, () => {
+const server = app.listen(config.PORT, () => {
    console.log(`Server listening on port ${config.PORT}`);
 });
+
+export default server;
